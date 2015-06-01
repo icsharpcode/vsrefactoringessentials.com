@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Shared/_Layout.cshtml";
+    Page.Title = "Change log";
+}
+
+<div class="container">
+
+    <h2>Change log</h2>
+
+    <ul>
+        <li>
+            0.10 - May 30th, 2015
+            <ul>
+                <li>Additional analyzers / refactorings (eg SuggestUseVarKeywordEvidentAnalyzer)</li>
+                <li>Bug fixes, new tests</li>
+            </ul>
+        </li>
+        <li>
+            0.9 - May 4th, 2015
+            <ul>
+                <li>Focus on refactorings (VSIX)</li>
+                <li>Roslyn-ization of NR6Pack (<a href="http://community.sharpdevelop.net/blogs/andreasweizel/archive/2015/04/28/nrefactory-amp-nr6pack-finally-roslyn-ized.aspx">blog post</a>)</li>
+            </ul>
+        </li>
+        <li>
+            0.8 - Mar 9th, 2015
+            <ul>
+                <li>Batch fix support</li>
+            </ul>
+        </li>
+        <li>
+            0.7 - Feb 25th, 2015
+            <ul>
+                <li>Support for VS 2015 CTP6</li>
+                <li>NEW: EventUnsubscriptionViaAnonymousDelegateIssue (ported)</li>
+            </ul>
+        </li>
+        <li>
+            0.6 - Jan 25th, 2015
+            <ul>
+                <li>Support for VS 2015 CTP5</li>
+                <li>NEW: ConvertIfToOrExpressionIssue (ported), ConvertIfToAndExpressionIssue, StaticConstructorParameterIssue, CS0659ClassOverrideEqualsWithoutGetHashCode</li>
+                <li>FIX: Handling of comments in various actions and issues</li>
+                <li>FIX: SealedMemberInSealedClassIssue, OptionalParameterRefOutIssue</li>
+            </ul>
+        </li>
+        <li>
+            0.5 - Jan 1st, 2015
+            <ul>
+                <li>NEW: 3 analyzers, 1 refactoring</li>
+                <li>FIX: nullable handling in ConvertConditionalTernaryToNullCoalescingIssue and ConvertNullCoalescingToConditionalExpressionAction</li>
+                <li>FIX: ReplaceWithOfType* and ReplaceWithSingleCallTo* tests/issues</li>
+                <li>Build server for automated unit tests (no NuGet or VSIX package creation) <a href="http://build.sharpdevelop.net/ccnet/server/local/project/NRefactoryRoslyn/ViewProjectReport.aspx">go</a></li>
+                <li>NRefactory / NR6Pack forum <a href="http://community.sharpdevelop.net/forums/78.aspx">go</a></li>
+            </ul>
+        </li>
+        <li>
+            0.4 - Dec 22nd, 2014
+            <ul>
+                <li>Complete cleanup (NRefactory alpha package, unit tests)</li>
+                <li>Publish NuGet for analyzers</li>
+            </ul>
+        </li>
+        <li>
+            0.3 - Dec 8th, 2014
+            <ul>
+                <li>Increase # of supported refactorings </li>
+                <li>Enable first set of Analyzers </li>
+            </ul>
+        </li>
+        <li>
+            0.2 - Dec 1st, 2014
+            <ul>
+                <li>Increase # of supported refactorings </li>
+                <li>Set up automation / testing </li>
+            </ul>
+        </li>
+        <li>
+            0.1 - Nov 17th, 2014
+            <ul>
+                <li>Test version with a single refactoring </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

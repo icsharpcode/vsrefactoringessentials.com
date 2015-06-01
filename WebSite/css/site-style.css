@@ -1,0 +1,48 @@
+/* Nav bar top fixed styles */
+body {
+    padding-top: 70px;
+}
+
+/* Sticky footer styles */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* Currently taken directly from vswebessentials (all we need is vertical centering) */
+.jumbotron .btn-social-network {
+    margin-top: 26px;
+    padding: 15px;
+    height: 48px;
+}
+
+    .jumbotron .btn-social-network li * {
+        margin: 0;
+        padding: 0;
+        vertical-align: top !important;
+    }
+
+    .jumbotron .btn-social-network ul li:first-child {
+        max-width: 92px;
+    }
+
+    .jumbotron .btn-social-network ul li {
+        overflow: hidden;
+        max-height: 20px;
+        display: inline-block;
+        max-width: 102px;
+    }
