@@ -4,24 +4,25 @@
 @functions
 {
 }
-@helper RenderActiveClassFor(string expectedPath){
-    if (0 == String.Compare(Request.Url.AbsolutePath, expectedPath, true)) {
+@helper RenderActiveClassFor(string expectedPath)
+{
+if (0 == String.Compare(Request.Url.AbsolutePath, expectedPath, true))
+{
         @: class="active"
     }
 }
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
-          
-	<meta name="keywords" content="NR6Pack,NRefactory,visual studio,2015,vs2015,community edition,express,refactoring,analyzer,free,oss,open source,extension,package,roslyn" />
-    <meta name="description" content="NR6Pack is the free open-source extension with 100+ refactorings and analyzers for Visual Studio 2015." />
-    <meta name="robots" content="index,follow">    
-    <meta name="author" content="Christoph Wille,NRefactory,SharpDevelop">
+
+    <meta name="keywords" content="@Page.Keywords" />
+    <meta name="description" content="@Page.Description" />
+    <meta name="robots" content="index,follow">
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
@@ -35,70 +36,70 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-      <style type="text/css">
-          .btn-social-network ul li {
+    <style type="text/css">
+        .btn-social-network ul li {
             overflow: hidden;
             max-height: 20px;
             display: inline-block;
             max-width: 102px;
-            }
+        }
 
-          .container .jumbotron {
-            padding-left: 0; 
-            padding-right: 0; 
-            }
+        .container .jumbotron {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-          ul#root >li {
+        ul#root > li {
             padding-bottom: 15px;
-            }
-      </style>
-  </head>
-  <body style="padding-top: 40px">
+        }
+    </style>
+</head>
+<body style="padding-top: 40px">
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Refactoring Essentials</a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Refactoring Essentials</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li @RenderActiveClassFor("/Install")><a href="@Constants.VsixUrl">Install</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="~/Features/Refactorings-CSharp">C# Refactorings</a></li>
+                            <li><a href="~/Features/Analyzers-CSharp">C# Analyzers</a></li>
+                            <li class="divider"></li>
+                            @*<li class="dropdown-header">Nav header</li>*@
+                            <li><a href="#">VB Refactorings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="~/Features/All">All Features</a></li>
+                        </ul>
+                    </li>
+                    <li @RenderActiveClassFor("/Changelog")><a href="~/Changelog">Change log</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li @RenderActiveClassFor("/About")><a href="~/About">About</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li @RenderActiveClassFor("/Install")><a href="@Constants.VsixUrl">Install</a></li>
-            <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      <li><a href="~/Features/Refactorings-CSharp">C# Refactorings</a></li>
-                      <li><a href="~/Features/Analyzers-CSharp">C# Analyzers</a></li>
-                      <li class="divider"></li>
-                      @*<li class="dropdown-header">Nav header</li>*@
-                      <li><a href="#">VB Refactorings</a></li>
-                      <li class="divider"></li>
-                      <li><a href="~/Features/All">All Features</a></li>
-                  </ul>
-              </li>
-              <li @RenderActiveClassFor("/Changelog")><a href="~/Changelog">Change log</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li @RenderActiveClassFor("/About")><a href="~/About">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
     @RenderBody()
 
     <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Part of the SharpDevelop OSS project. MIT-licensed.</p>
-      </div>
+        <div class="container">
+            <p class="text-muted">Part of the SharpDevelop OSS project. MIT-licensed.</p>
+        </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="@Href("~/dist/bootswatch-dist/js/bootstrap.min.js")"></script>
-  </body>
+</body>
 </html>
