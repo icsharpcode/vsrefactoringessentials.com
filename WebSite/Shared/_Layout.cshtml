@@ -1,13 +1,14 @@
 ﻿@using System
 @{
+    CachePage.WhenNotLocal(Context);
 }
 @functions
 {
 }
 @helper RenderActiveClassFor(string expectedPath)
 {
-if (0 == String.Compare(Request.Url.AbsolutePath, expectedPath, true))
-{
+    if (0 == String.Compare(Request.Url.AbsolutePath, expectedPath, StringComparison.OrdinalIgnoreCase))
+    {
         @: class="active"
     }
 }
