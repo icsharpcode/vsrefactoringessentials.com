@@ -131,10 +131,11 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpAnalyzers"
-                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">89</span></a>
+                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">90</span></a>
                 </h4>
                 <div id="collapseCSharpAnalyzers" class="panel-collapse collapse">
                     <div class="panel-body">
+
                         <ul>
                             <li>Suggests using the class declaring a static function when calling it (AccessToStaticMemberViaDerivedTypeAnalyzer)</li>
                             <li>When initializing explicitly typed local variable or array type, array creation expression can be replaced with array initializer. (ArrayCreationCanBeReplacedWithArrayInitializerAnalyzer)</li>
@@ -189,6 +190,7 @@
                             <li>'base.' is redundant and can safely be removed (RedundantBaseQualifierAnalyzer)</li>
                             <li>Redundant case label (RedundantCaseLabelAnalyzer)</li>
                             <li>Redundant empty 'default' switch branch (RedundantEmptyDefaultSwitchBranchAnalyzer)</li>
+                            <li>Removes 'internal' modifiers that are not required (RedundantInternalAnalyzer)</li>
                             <li>Removes 'private' modifiers that are not required (RedundantPrivateAnalyzer)</li>
                             <li>Redundant conditional expression (RedundantTernaryExpressionAnalyzer)</li>
                             <li>Remove redundant statement (RemoveRedundantOrStatementAnalyzer)</li>
@@ -226,6 +228,7 @@
                             <li>[ThreadStatic] doesn't work with instance fields (ThreadStaticAtInstanceFieldAnalyzer)</li>
                             <li>Warns about property or indexer setters and event adders or removers that do not use the value parameter (ValueParameterNotUsedAnalyzer)</li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -265,14 +268,16 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseVBRefactorings"
-                       href="#collapseVBRefactorings">VB Refactorings<span style="float: right;">2</span></a>
+                       href="#collapseVBRefactorings">VB Refactorings<span style="float: right;">4</span></a>
                 </h4>
                 <div id="collapseVBRefactorings" class="panel-collapse collapse">
                     <div class="panel-body">
                         
                         <ul>
+                            <li>Check dictionary key value (CheckDictionaryKeyValueCodeRefactoringProvider)</li>
                             <li>Convert Do...Loop While/Until to Do While/Until...Loop (ConvertDoLoopWhileToDoWhileLoopCodeRefactoringProvider)</li>
                             <li>Convert Do While/Until...Loop to Do...Loop While/Until (ConvertDoWhileLoopToDoLoopWhileCodeRefactoringProvider)</li>
+                            <li>Copy comments from base (CopyCommentsFromBaseCodeRefactoringProvider)</li>
                         </ul>
 
                     </div>
