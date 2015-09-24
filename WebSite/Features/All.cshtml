@@ -22,7 +22,7 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpRefactorings"
-                       href="#collapseCSharpRefactorings">C# Refactorings<span style="float: right;">92</span></a>
+                       href="#collapseCSharpRefactorings">C# Refactorings<span style="float: right;">96</span></a>
                 </h4>
                 <div id="collapseCSharpRefactorings" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -70,6 +70,7 @@
                             <li>Convert '*'/'/' to '&lt;&lt;'/'&gt;&gt;' (ConvertMultiplyToShiftCodeRefactoringProvider)</li>
                             <li>Convert 'ReferenceEquals' call to '==' or '!=' (ConvertReferenceEqualsToEqualityOperatorCodeRefactoringProvider)</li>
                             <li>Convert '&lt;&lt;'/'&gt;&gt;' to '*'/'/' (ConvertShiftToMultiplyCodeRefactoringProvider)</li>
+                            <li>Convert statement body member to expression body (ConvertStatementBodyToExpressionBodyCodeRefactoringProvider)</li>
                             <li>Convert 'string.Format' to string interpolation (ConvertStringFormatToInterpolatedStringCodeRefactoringProvider)</li>
                             <li>Convert 'switch' to 'if' (ConvertSwitchToIfCodeRefactoringProvider)</li>
                             <li>Convert 'return' to 'if' (ConvertTernaryExpressionToIfStatementCodeRefactoringProvider)</li>
@@ -91,10 +92,13 @@
                             <li>Invert if (InvertIfCodeRefactoringProvider)</li>
                             <li>Invert logical expression (InvertLogicalExpressionCodeRefactoringProvider)</li>
                             <li>Invoke as static method (InvokeAsStaticMethodCodeRefactoringProvider)</li>
+                            <li>Iterate via 'foreach' (IterateViaForeachAction)</li>
                             <li>Join local variable declaration and assignment (JoinLocalVariableDeclarationAndAssignmentCodeRefactoringProvider)</li>
                             <li>Join string literal (JoinStringCodeRefactoringProvider)</li>
+                            <li>Merge nested 'if' (MergeNestedIfAction)</li>
                             <li>Negate 'is' expression (NegateIsExpressionCodeRefactoringProvider)</li>
                             <li>Negate a relational expression (NegateLogicalExpressionCodeRefactoringProvider)</li>
+                            <li>put inside 'using' (PutInsideUsingAction)</li>
                             <li>Remove braces (RemoveBracesCodeRefactoringProvider)</li>
                             <li>'catch (Exception)' to 'catch' (RemoveCatchExceptionCodeRefactoringProvider)</li>
                             <li>Remove #region/#endregion directives (RemoveRegionEndRegionDirectivesCodeRefactoringProvider)</li>
@@ -108,7 +112,7 @@
                             <li>Convert 'as' to cast. (ReplaceSafeCastWithDirectCastCodeRefactoringProvider)</li>
                             <li>Replaces 'var' with explicit type specification (ReplaceVarWithExplicitTypeCodeRefactoringProvider)</li>
                             <li>Replace assignment with operator assignment (ReplaceWithOperatorAssignmentCodeRefactoringProvider)</li>
-                            <li>Reverse the direction of a for (ReverseDirectionForForLoopCodeRefactoringProvider)</li>
+                            <li>Reverse the direction of a for  (ReverseDirectionForForLoopCodeRefactoringProvider)</li>
                             <li>Sort usings (SortUsingsAction)</li>
                             <li>Split declaration list (SplitDeclarationListCodeRefactoringProvider)</li>
                             <li>Split 'if' with '&amp;&amp;' condition in two nested 'if' statements (SplitIfWithAndConditionInTwoCodeRefactoringProvider)</li>
@@ -131,7 +135,7 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpAnalyzers"
-                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">91</span></a>
+                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">101</span></a>
                 </h4>
                 <div id="collapseCSharpAnalyzers" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -173,6 +177,7 @@
                             <li>Convert field to readonly (FieldCanBeMadeReadOnlyAnalyzer)</li>
                             <li>'true' is redundant as for statement condition (ForStatementConditionIsTrueAnalyzer)</li>
                             <li>If an extension method is called as static method convert it to method syntax (InvokeAsExtensionMethodAnalyzer)</li>
+                            <li>Local variable is never used (LocalVariableNotUsedAnalyzer)</li>
                             <li>Lowercase 'l' is often confused with '1' (LongLiteralEndingLowerLAnalyzer)</li>
                             <li>Suggest the usage of the nameof operator (NameOfSuggestionAnalyzer)</li>
                             <li>Non public methods are not found by NUnit (NonPublicMethodWithTestAttributeAnalyzer)</li>
@@ -181,18 +186,27 @@
                             <li>Possible unassigned object created by 'new' (ObjectCreationAsStatementAnalyzer)</li>
                             <li>Operator Is can be used instead of comparing object GetType() and instances of System.Type object (OperatorIsCanBeUsedAnalyzer)</li>
                             <li>C# doesn't support optional 'ref' or 'out' parameters (OptionalParameterRefOutAnalyzer)</li>
+                            <li>Parameter is assigned but its value is never used (ParameterOnlyAssignedAnalyzer)</li>
                             <li>Class is declared partial but has only one part (PartialTypeWithSinglePartAnalyzer)</li>
                             <li>Possible mistaken call to 'object.GetType()' (PossibleMistakenCallToGetTypeAnalyzer)</li>
                             <li>Constructor in abstract class should not be public (PublicConstructorInAbstractClassAnalyzer)</li>
                             <li>Redundant explicit property name (RedundantAnonymousTypePropertyNameAnalyzer)</li>
                             <li>Redundant explicit argument name specification (RedundantArgumentNameAnalyzer)</li>
                             <li>Parentheses are redundant if attribute has no arguments (RedundantAttributeParenthesesAnalyzer)</li>
+                            <li>This is generated by the compiler and can be safely removed (RedundantBaseConstructorCallAnalyzer)</li>
                             <li>'base.' is redundant and can safely be removed (RedundantBaseQualifierAnalyzer)</li>
                             <li>Redundant case label (RedundantCaseLabelAnalyzer)</li>
+                            <li>Check for inequality before assignment is redundant if (x != value) x = value; (RedundantCheckBeforeAssignmentAnalyzer)</li>
+                            <li>Redundant comma in array initializer (RedundantCommaInArrayInitializerAnalyzer)</li>
+                            <li>Explicit delegate creation expression is redundant (RedundantDelegateCreationAnalyzer)</li>
                             <li>Redundant empty 'default' switch branch (RedundantEmptyDefaultSwitchBranchAnalyzer)</li>
+                            <li>Redundant explicit size in array creation (RedundantExplicitArraySizeAnalyzer)</li>
                             <li>Value types are implicitly convertible to nullables (RedundantExplicitNullableCreationAnalyzer)</li>
+                            <li>Redundant 'else' keyword (RedundantIfElseBlockAnalyzer)</li>
                             <li>Removes 'internal' modifiers that are not required (RedundantInternalAnalyzer)</li>
+                            <li>When object creation uses object or collection initializer, empty argument list is redundant (RedundantObjectCreationArgumentListAnalyzer)</li>
                             <li>Removes 'private' modifiers that are not required (RedundantPrivateAnalyzer)</li>
+                            <li>Redundant 'string.ToCharArray()' call (RedundantStringToCharArrayCallAnalyzer)</li>
                             <li>Redundant conditional expression (RedundantTernaryExpressionAnalyzer)</li>
                             <li>Remove redundant statement (RemoveRedundantOrStatementAnalyzer)</li>
                             <li>Replace with call to FirstOrDefault&lt;T&gt;() (ReplaceWithFirstOrDefaultAnalyzer)</li>
@@ -269,7 +283,7 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseVBRefactorings"
-                       href="#collapseVBRefactorings">VB Refactorings<span style="float: right;">7</span></a>
+                       href="#collapseVBRefactorings">VB Refactorings<span style="float: right;">16</span></a>
                 </h4>
                 <div id="collapseVBRefactorings" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -277,11 +291,20 @@
                         <ul>
                             <li>Adds another accessor (AddAnotherAccessorCodeRefactoringProvider)</li>
                             <li>Check dictionary key value (CheckDictionaryKeyValueCodeRefactoringProvider)</li>
+                            <li>Check if parameter is Nothing (CheckIfParameterIsNothingCodeRefactoringProvider)</li>
+                            <li>Compute constant value (ComputeConstantValueCodeRefactoringProvider)</li>
+                            <li>Convert dec to hex. (ConvertDecToHexCodeRefactoringProvider)</li>
                             <li>Convert Do...Loop While/Until to Do While/Until...Loop (ConvertDoLoopWhileToDoWhileLoopCodeRefactoringProvider)</li>
                             <li>Convert Do While/Until...Loop to Do...Loop While/Until (ConvertDoWhileLoopToDoLoopWhileCodeRefactoringProvider)</li>
+                            <li>Convert hex to dec. (ConvertHexToDecCodeRefactoringProvider)</li>
+                            <li>Convert 'If' to 'Select Case' (ConvertIfStatementToSelectCaseStatementCodeRefactoringProvider)</li>
+                            <li>Convert 'Select Case' to 'If' (ConvertSelectCaseToIfCodeRefactoringProvider)</li>
+                            <li>Convert to custom event (ConvertToCustomEventCodeRefactoringProvider)</li>
                             <li>Copy comments from base (CopyCommentsFromBaseCodeRefactoringProvider)</li>
                             <li>Create changed event for property (CreateChangedEventCodeRefactoringProvider)</li>
                             <li>Invert if (InvertIfCodeRefactoringProvider)</li>
+                            <li>Convert cast to 'TryCast'. (ReplaceDirectCastWithSafeCastCodeRefactoringProvider)</li>
+                            <li>Convert 'TryCast' to cast. (ReplaceSafeCastWithDirectCastCodeRefactoringProvider)</li>
                         </ul>
 
                     </div>
