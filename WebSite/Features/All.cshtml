@@ -22,10 +22,11 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpRefactorings"
-                       href="#collapseCSharpRefactorings">C# Refactorings<span style="float: right;">101</span></a>
+                       href="#collapseCSharpRefactorings">C# Refactorings<span style="float: right;">102</span></a>
                 </h4>
                 <div id="collapseCSharpRefactorings" class="panel-collapse collapse">
                     <div class="panel-body">
+
                         <ul>
                             <li>Adds another accessor (AddAnotherAccessorCodeRefactoringProvider)</li>
                             <li>Add braces (AddBracesCodeRefactoringProvider)</li>
@@ -42,6 +43,7 @@
                             <li>Check StringBuilder index value (CheckStringBuilderIndexValueCodeRefactoringProvider)</li>
                             <li>Check string index value (CheckStringIndexValueCodeRefactoringProvider)</li>
                             <li>Compute constant value (ComputeConstantValueCodeRefactoringProvider)</li>
+                            <li>Add a Contract to specify the return value must not be null (ContractEnsuresNotNullReturnCodeRefactoringProvider)</li>
                             <li>Add a Contract to specify the parameter must not be null (ContractRequiresNotNullCodeRefactoringProvider)</li>
                             <li>Convert anonymous method to lambda expression (ConvertAnonymousMethodToLambdaCodeRefactoringProvider)</li>
                             <li>Convert auto-property to computed propertyy (ConvertAutoPropertyToPropertyCodeRefactoringProvider)</li>
@@ -129,6 +131,7 @@
                             <li>Use System.Environment.NewLine (UseSystemEnvironmentNewLineCodeRefactoringProvider)</li>
                             <li>Use string.Empty (UseSystemStringEmptyCodeRefactoringProvider)</li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -140,7 +143,7 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpAnalyzers"
-                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">100</span></a>
+                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">102</span></a>
                 </h4>
                 <div id="collapseCSharpAnalyzers" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -158,6 +161,7 @@
                             <li>'?:' expression has identical true and false branches (ConditionalTernaryEqualBranchAnalyzer)</li>
                             <li>Expression is always 'true' or always 'false' (ConditionIsAlwaysTrueOrFalseAnalyzer)</li>
                             <li>Condition is always 'true' or always 'false' (ConstantConditionAnalyzer)</li>
+                            <li>Finds redundant null coalescing expressions such as expr ?? expr (ConstantNullCoalescingConditionAnalyzer)</li>
                             <li>Convert anonymous method to method group (ConvertClosureToMethodGroupAnalyzer)</li>
                             <li>'?:' expression can be converted to '??' expression (ConvertConditionalTernaryToNullCoalescingAnalyzer)</li>
                             <li>Convert 'if-do-while' to 'while' statement (ConvertIfDoToWhileAnalyzer)</li>
@@ -236,6 +240,7 @@
                             <li>Redundant Where() call with predicate followed by Single() (ReplaceWithSingleCallToSingleAnalyzer)</li>
                             <li>Redundant Where() call with predicate followed by SingleOrDefault() (ReplaceWithSingleCallToSingleOrDefaultAnalyzer)</li>
                             <li>Uses shorter string.IsNullOrEmpty call instead of a longer condition (ReplaceWithStringIsNullOrEmptyAnalyzer)</li>
+                            <li>Using internal Roslyn features through reflection in wrong context. (RoslynReflectionUsageAnalyzer)</li>
                             <li>'sealed' modifier is redundant in sealed classes (SealedMemberInSealedClassAnalyzer)</li>
                             <li>Conditional expression can be simplified (SimplifyConditionalTernaryExpressionAnalyzer)</li>
                             <li>Warns when a culture-aware 'string.CompareTo' call is used by default (StringCompareToIsCultureSpecificAnalyzer)</li>
