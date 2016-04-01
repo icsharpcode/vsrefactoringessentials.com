@@ -65,6 +65,7 @@
                             <li>Convert 'if' to 'return' (ConvertIfStatementToReturnStatementAction)</li>
                             <li>Convert 'if' to 'switch' (ConvertIfStatementToSwitchStatementCodeRefactoringProvider)</li>
                             <li>Convert implict to explicit implementation (ConvertImplicitToExplicitImplementationCodeRefactoringProvider)</li>
+                            <li>Convert instance to static method (ConvertInstanceToStaticMethodCodeRefactoringProvider)</li>
                             <li>Convert string interpolation to 'string.Format' (ConvertInterpolatedStringToStringFormatCodeRefactoringProvider)</li>
                             <li>Converts expression of lambda body to statement (ConvertLambdaBodyExpressionToStatementCodeRefactoringProvider)</li>
                             <li>Converts statement of lambda body to expression (ConvertLambdaStatementToExpressionCodeRefactoringProvider)</li>
@@ -119,7 +120,6 @@
                             <li>Replaces 'var' with explicit type specification (ReplaceVarWithExplicitTypeCodeRefactoringProvider)</li>
                             <li>Replace assignment with operator assignment (ReplaceWithOperatorAssignmentCodeRefactoringProvider)</li>
                             <li>Reverse the direction of a for  (ReverseDirectionForForLoopCodeRefactoringProvider)</li>
-                            <li>Sort usings (SortUsingsAction)</li>
                             <li>Split declaration list (SplitDeclarationListCodeRefactoringProvider)</li>
                             <li>Split 'if' with '&amp;&amp;' condition in two nested 'if' statements (SplitIfWithAndConditionInTwoCodeRefactoringProvider)</li>
                             <li>Split 'if' with '||' condition in two 'if' statements (SplitIfWithOrConditionInTwoCodeRefactoringProvider)</li>
@@ -143,7 +143,7 @@
             <div class="panel panel-default">
                 <h4 class="panel-heading" style="margin: 0">
                     <a data-toggle="collapse" data-target="#collapseCSharpAnalyzers"
-                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">102</span></a>
+                       href="#collapseCSharpAnalyzers">C# Analyzers<span style="float: right;">119</span></a>
                 </h4>
                 <div id="collapseCSharpAnalyzers" class="panel-collapse collapse">
                     <div class="panel-body">
@@ -151,6 +151,7 @@
                         <ul>
                             <li>Suggests using the class declaring a static function when calling it (AccessToStaticMemberViaDerivedTypeAnalyzer)</li>
                             <li>When initializing explicitly typed local variable or array type, array creation expression can be replaced with array initializer. (ArrayCreationCanBeReplacedWithArrayInitializerAnalyzer)</li>
+                            <li>Asynchronous methods should return a Task instead of void (AvoidAsyncVoidAnalyzer)</li>
                             <li>Base parameter has 'params' modifier, but missing in overrider (BaseMemberHasParamsAnalyzer)</li>
                             <li>Call to base member with implicit default parameters (BaseMethodCallWithDefaultParameterAnalyzer)</li>
                             <li>Parameter name differs in base declaration (BaseMethodParameterNameMismatchAnalyzer)</li>
@@ -180,12 +181,19 @@
                             <li>Empty namespace declaration is redundant (EmptyNamespaceAnalyzer)</li>
                             <li>Empty statement is redundant (EmptyStatementAnalyzer)</li>
                             <li>The default underlying type of enums is int, so defining it explicitly is redundant. (EnumUnderlyingTypeIsIntAnalyzer)</li>
+                            <li>Comparing equal expression for equality is usually useless (EqualExpressionComparisonAnalyzer)</li>
                             <li>Event unsubscription via anonymous delegate is useless (EventUnsubscriptionViaAnonymousDelegateAnalyzer)</li>
                             <li>Convert field to readonly (FieldCanBeMadeReadOnlyAnalyzer)</li>
+                            <li>'for' loop control variable is never modified (ForControlVariableIsNeverModifiedAnalyzer)</li>
+                            <li>Finds issues with format strings (FormatStringProblemAnalyzer)</li>
                             <li>'true' is redundant as for statement condition (ForStatementConditionIsTrueAnalyzer)</li>
+                            <li>Function does not reach its end or a 'return' statement by any of possible execution paths (FunctionNeverReturnsAnalyzer)</li>
                             <li>If an extension method is called as static method convert it to method syntax (InvokeAsExtensionMethodAnalyzer)</li>
+                            <li>Local variable has the same name as a member and hides it (LocalVariableHidesMemberAnalyzer)</li>
                             <li>Local variable is never used (LocalVariableNotUsedAnalyzer)</li>
                             <li>Lowercase 'l' is often confused with '1' (LongLiteralEndingLowerLAnalyzer)</li>
+                            <li>Member hides static member from outer class (MemberHidesStaticFromOuterClassAnalyzer)</li>
+                            <li>Method with optional parameter is hidden by overload (MethodOverloadWithOptionalParameterAnalyzer)</li>
                             <li>Suggest the usage of the nameof operator (NameOfSuggestionAnalyzer)</li>
                             <li>Non public methods are not found by NUnit (NonPublicMethodWithTestAttributeAnalyzer)</li>
                             <li>Shows NotImplementedException throws in the quick task bar (NotImplementedExceptionAnalyzer)</li>
@@ -193,7 +201,9 @@
                             <li>Possible unassigned object created by 'new' (ObjectCreationAsStatementAnalyzer)</li>
                             <li>Operator Is can be used instead of comparing object GetType() and instances of System.Type object (OperatorIsCanBeUsedAnalyzer)</li>
                             <li>C# doesn't support optional 'ref' or 'out' parameters (OptionalParameterRefOutAnalyzer)</li>
+                            <li>Parameter has the same name as a member and hides it (ParameterHidesMemberAnalyzer)</li>
                             <li>Parameter is assigned but its value is never used (ParameterOnlyAssignedAnalyzer)</li>
+                            <li>Parameter name differs in partial method definition (PartialMethodParameterNameMismatchAnalyzer)</li>
                             <li>Class is declared partial but has only one part (PartialTypeWithSinglePartAnalyzer)</li>
                             <li>Possible mistaken call to 'object.GetType()' (PossibleMistakenCallToGetTypeAnalyzer)</li>
                             <li>Constructor in abstract class should not be public (PublicConstructorInAbstractClassAnalyzer)</li>
@@ -205,8 +215,10 @@
                             <li>Redundant case label (RedundantCaseLabelAnalyzer)</li>
                             <li>Check for inequality before assignment is redundant if (x != value) x = value; (RedundantCheckBeforeAssignmentAnalyzer)</li>
                             <li>Redundant comma in array initializer (RedundantCommaInArrayInitializerAnalyzer)</li>
+                            <li>Initializing field with default value is redundant (RedundantDefaultFieldInitializerAnalyzer)</li>
                             <li>Explicit delegate creation expression is redundant (RedundantDelegateCreationAnalyzer)</li>
                             <li>Redundant empty 'default' switch branch (RedundantEmptyDefaultSwitchBranchAnalyzer)</li>
+                            <li>Redundant empty finally block (RedundantEmptyFinallyBlockAnalyzer)</li>
                             <li>Redundant explicit size in array creation (RedundantExplicitArraySizeAnalyzer)</li>
                             <li>Value types are implicitly convertible to nullables (RedundantExplicitNullableCreationAnalyzer)</li>
                             <li>Redundant 'else' keyword (RedundantIfElseBlockAnalyzer)</li>
@@ -215,6 +227,8 @@
                             <li>Removes 'private' modifiers that are not required (RedundantPrivateAnalyzer)</li>
                             <li>Redundant 'string.ToCharArray()' call (RedundantStringToCharArrayCallAnalyzer)</li>
                             <li>Redundant conditional expression (RedundantTernaryExpressionAnalyzer)</li>
+                            <li>RedundantToStringCallAnalyzer</li>
+                            <li>Unsafe modifier in redundant in unsafe context or when no unsafe constructs are used (RedundantUnsafeContextAnalyzer)</li>
                             <li>Remove redundant statement (RemoveRedundantOrStatementAnalyzer)</li>
                             <li>Replace with call to FirstOrDefault&lt;T&gt;() (ReplaceWithFirstOrDefaultAnalyzer)</li>
                             <li>Replace with call to LastOrDefault&lt;T&gt;() (ReplaceWithLastOrDefaultAnalyzer)</li>
@@ -240,9 +254,10 @@
                             <li>Redundant Where() call with predicate followed by Single() (ReplaceWithSingleCallToSingleAnalyzer)</li>
                             <li>Redundant Where() call with predicate followed by SingleOrDefault() (ReplaceWithSingleCallToSingleOrDefaultAnalyzer)</li>
                             <li>Uses shorter string.IsNullOrEmpty call instead of a longer condition (ReplaceWithStringIsNullOrEmptyAnalyzer)</li>
-                            <li>Using internal Roslyn features through reflection in wrong context. (RoslynReflectionUsageAnalyzer)</li>
+                            <li>Unallowed usage of Roslyn features in this context. (RoslynUsageAnalyzer)</li>
                             <li>'sealed' modifier is redundant in sealed classes (SealedMemberInSealedClassAnalyzer)</li>
                             <li>Conditional expression can be simplified (SimplifyConditionalTernaryExpressionAnalyzer)</li>
+                            <li>Warns about static fields in generic types (StaticFieldOrAutoPropertyInGenericTypeAnalyzer)</li>
                             <li>Warns when a culture-aware 'string.CompareTo' call is used by default (StringCompareToIsCultureSpecificAnalyzer)</li>
                             <li>Warns when a culture-aware 'EndsWith' call is used by default. (StringEndsWithIsCultureSpecificAnalyzer)</li>
                             <li>Warns when a culture-aware 'IndexOf' call is used by default. (StringIndexOfIsCultureSpecificAnalyzer)</li>
@@ -250,7 +265,9 @@
                             <li>Warns when a culture-aware 'StartsWith' call is used by default. (StringStartsWithIsCultureSpecificAnalyzer)</li>
                             <li>Use 'var' keyword when possible (SuggestUseVarKeywordEvidentAnalyzer)</li>
                             <li>[ThreadStatic] doesn't work with instance fields (ThreadStaticAtInstanceFieldAnalyzer)</li>
+                            <li>Type parameter is never used (UnusedTypeParameterAnalyzer)</li>
                             <li>Warns about property or indexer setters and event adders or removers that do not use the value parameter (ValueParameterNotUsedAnalyzer)</li>
+                            <li>Validate Xml docs (XmlDocAnalyzer)</li>
                         </ul>
 
                     </div>
